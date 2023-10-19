@@ -3,6 +3,7 @@ function updateSaveCode() {
     var saveCode = document.getElementById("saveCode").value;
     var money = document.getElementById("money").value;
     var bb = document.getElementById("bb").value;
+    var gold = document.getElementById("gold").value;
     var level = document.getElementById("level").value;
 
     // Decode the base64 save code
@@ -19,6 +20,11 @@ function updateSaveCode() {
     // Update the second value (index 1) with the entered money amount
     if (money) {
         saveArray[1] = money;
+    }
+
+    // Update the third value (index 2) with the entered gold amount
+    if (gold) {
+        saveArray[2] = gold;
     }
 
     // Update the eigth value (index 7) with the entered BB amount
