@@ -1,0 +1,13 @@
+body {
+    background-color:#2c2c2c;
+    color:#ffffff;
+    font-family: 'Roboto';
+}
+
+input[type=text] {
+    background-color: #464646;
+}
+
+textarea {
+    background-color: #464646;
+}
