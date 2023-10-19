@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Idle Breakout Hack Tool</title>
-    <!-- Add a link to an icon library (FontAwesome, for example) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -19,20 +18,21 @@
                                                     `)
                                                     
             console.log("Hacking tool by JoshAtticus | Version 1.0")
-            console.log("If you didn't get this from https://joshatticus.is-a.dev or https://github.com/JoshAtticus, please delete it and report the site you got this from. ")
+            console.log("If you didn't get this from https://joshatticus.is-a.dev or https://github.com/JoshAtticus/IdleBreakoutHackTool, please delete it and report the site you got this from. ")
         }
 
         doNotSteal()
     </script>
     
-    <label for="saveCode">Enter Base64 Save Code:</label>
-    <textarea id="saveCode" rows="4" cols="50"></textarea><br><br>
+    <label for="saveCode">Enter Base64 Save Code</label>
+    <br>
+    <textarea id="saveCode" rows="4" cols="30"></textarea><br><br>
 
     <label for="money">Enter Amount of Money:</label>
     <input type="text" id="money"><br><br>
 
-    <!-- <label for="money">Enter Amount of BBs (BROKEN) (maximum 10000):</label>
-    <input type="text" id="bb" ><br><br> -->
+    <label for="money">Enter Amount of BBs:</label>
+    <input type="text" id="bb" ><br><br>
 
     <label for="money">Enter Level (don't go too crazy):</label>
     <input type="text" id="level"><br><br>
@@ -64,7 +64,7 @@
             // Get the values from the input fields
             var saveCode = document.getElementById("saveCode").value;
             var money = document.getElementById("money").value;
-            // var bb = document.getElementById("bb").value;
+            var bb = document.getElementById("bb").value;
             var level = document.getElementById("level").value;
 
             // Decode the base64 save code
@@ -75,17 +75,23 @@
 
             // Check if the third value is -inf, and change it to 0 if true
             if (saveArray[2] === "-inf") {
-            saveArray[2] = "0";
-                }
+                saveArray[2] = "0";
+            }
 
             // Update the second value (index 1) with the entered money amount
-            saveArray[1] = money;
+            if (money) {
+                saveArray[1] = money;
+            }
 
             // Update the eigth value (index 7) with the entered BB amount
-            // saveArray[7] = bb;
+            if (bb) {
+                saveArray[104] = bb;
+            }
 
             // Update the first value (index 0) with the entered level
-            saveArray[0] = level;
+            if (level) {
+                saveArray[0] = level;
+            }
 
             // Join the array back into a string
             var updatedSaveCode = saveArray.join(",");
