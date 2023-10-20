@@ -4,7 +4,14 @@ function updateSaveCode() {
     var money = document.getElementById("money").value;
     var bb = document.getElementById("bb").value;
     var gold = document.getElementById("gold").value;
+    var prgold = document.getElementById("prgold").value;
     var level = document.getElementById("level").value;
+    var basicballs = document.getElementById("basicballs").value;
+    var plasmaballs = document.getElementById("plasmaballs").value;
+    var sniperballs = document.getElementById("sniperballs").value;
+    var scatterballs = document.getElementById("scatterballs").value;
+    var cannonballs = document.getElementById("sniperballs").value;
+    var poisonballs = document.getElementById("scatterballs").value;
 
     // Decode the base64 save code
     var decodedSaveCode = atob(saveCode);
@@ -17,24 +24,48 @@ function updateSaveCode() {
         saveArray[2] = "0";
     }
 
-    // Update the second value (index 1) with the entered money amount
     if (money) {
         saveArray[1] = money;
     }
 
-    // Update the third value (index 2) with the entered gold amount
     if (gold) {
         saveArray[2] = gold;
     }
 
-    // Update the eigth value (index 7) with the entered BB amount
+    if (prgold) {
+        saveArray[3] = prgold;
+    }
+
     if (bb) {
         saveArray[104] = bb;
     }
 
-    // Update the first value (index 0) with the entered level
     if (level) {
         saveArray[0] = level;
+    }
+
+    if (basicballs) {
+        saveArray[28] = basicballs;
+    }
+
+    if (plasmaballs) {
+        saveArray[29] = plasmaballs;
+    }
+
+    if (sniperballs) {
+        saveArray[30] = sniperballs;
+    }
+
+    if (scatterballs) {
+        saveArray[31] = scatterballs;
+    }
+
+    if (cannonballs) {
+        saveArray[32] = cannonballs;
+    }
+
+    if (poisonballs) {
+        saveArray[33] = poisonballs;
     }
 
     // Join the array back into a string
@@ -44,10 +75,14 @@ function updateSaveCode() {
     var encodedSaveCode = btoa(updatedSaveCode);
 
     // Display the updated base64 save code
-    document.getElementById("updatedSaveCode").innerHTML = encodedSaveCode;
+    var updatedSaveCodeElement = document.getElementById("updatedSaveCode");
+    updatedSaveCodeElement.innerHTML = encodedSaveCode;
 
-    // Display the updated non-base64 save code
-    document.getElementById("updatedNonBase64SaveCode").innerHTML = updatedSaveCode;
+    // Show the "Modded Save Code" header and "Copy New Save Code" button
+    var moddedSaveCodeHeader = document.getElementById("moddedSaveCodeHeader");
+    var copyNewSaveCodeButton = document.getElementById("copyNewSaveCode");
+    moddedSaveCodeHeader.style.display = "block";
+    copyNewSaveCodeButton.style.display = "block";
 }
 
 // Function to copy the code to the clipboard

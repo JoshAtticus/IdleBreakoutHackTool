@@ -14,10 +14,14 @@
     <script>
         doNotSteal()
     </script>
-    
-    <label for="saveCode">Enter Current Save Code</label>
+    <hr>
+    <h2>Save Code</h2>
+    <label for="saveCode">Enter Current Save Code (follow instructions at bottom of page to find it!)</label>
     <br>
     <textarea id="saveCode" rows="4" cols="30"></textarea><br><br>
+    
+    <hr>
+    <h2>Currency</h2>
 
     <label for="money">Set Money</label>
     <input type="text" id="money"><br><br>
@@ -28,22 +32,45 @@
     <label for="money">Set Gold:</label>
     <input type="text" id="gold" ><br><br>
 
+    <label for="money">Set Prestige Gold (will be claimed on prestige):</label>
+    <input type="text" id="prgold" ><br><br>
+
+    <hr>
+    <h2>Level</h2>
+
     <label for="money">Set Level (don't go too crazy):</label>
     <input type="text" id="level"><br><br>
 
+    <hr>
+    <h2>Balls</h2>
+    <h3>Note: While you can set an amount of balls above your ingame limit, you will not be able to buy more balls officially in game if you go above the limit!</h3>
+
+    <label for="money">Set Basic Balls</label>
+    <input type="text" id="basicballs" ><br></br>
+
+    <label for="money">Set Plasma Balls</label>
+    <input type="text" id="plasmaballs" ><br></br>
+
+    <label for="money">Set Sniper Balls</label>
+    <input type="text" id="sniperballs" ><br></br>
+
+    <label for="money">Set Scatter Balls</label>
+    <input type="text" id="scatterballs" ><br></br>
+
+    <label for="money">Set Cannon Balls</label>
+    <input type="text" id="cannonballs" ><br></br>
+
+    <label for="money">Set Poison Balls</label>
+    <input type="text" id="poisonballs" ><br></br>
+
     <button onclick="updateSaveCode()">Update Save Code</button>
 
-    <h2>Modded Save Code:</h2>
+    <!-- Modded Save Code header and Copy buttons -->
+    <h2 id="moddedSaveCodeHeader" style="display: none;">Modded Save Code</h2>
     <p id="updatedSaveCode"></p>
-
-    <!-- <h2>Updated Save Code (Non-Base64):</h2>
-    <p id="updatedNonBase64SaveCode"></p> -->
+    <button id="copyNewSaveCode" style="display: none;" onclick="copyToClipboard('updatedSaveCode')">Copy New Save Code</button>
     
-    <!-- Copy buttons -->
-    <button onclick="copyToClipboard('updatedSaveCode')">Copy New Save Code</button>
-    <!-- <button onclick="copyToClipboard('updatedNonBase64SaveCode')">Copy Non-Base64 Save Code</button> -->
-
-    <p><strong>Instructions:</strong></p>
+    <p><strong>Instructions</strong></p>
     <ol>
         <li>Find your current save code by going to: Settings (<i class="fas fa-cog"></i>) > Export and copy the code.</li>
         <li>Paste the save code and enter what you'd like to change above.</li>
@@ -58,5 +85,3 @@
     </script>
 </body>
 </html>
-
-<!--Hacking tool by JoshAtticus | Version 1.0-->
