@@ -5,6 +5,7 @@ function updateSaveCode() {
     var bb = document.getElementById("bb").value;
     var gold = document.getElementById("gold").value;
     var prgold = document.getElementById("prgold").value;
+    var skillpoints = document.getElementById("skillpoints").value;
     var level = document.getElementById("level").value;
     var basicballs = document.getElementById("basicballs").value;
     var plasmaballs = document.getElementById("plasmaballs").value;
@@ -34,6 +35,10 @@ function updateSaveCode() {
 
     if (prgold) {
         saveArray[3] = prgold;
+    }
+
+    if (skillpoints) {
+        saveArray[109] = skillpoints;
     }
 
     if (bb) {
